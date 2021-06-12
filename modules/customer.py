@@ -15,7 +15,7 @@ class Customer:
     def objects(cls):
         customers = []
         my_path = os.path.abspath(os.path.dirname(__file__))
-        path = os.path.join(my_path, "../assessment-2/data/customers.csv")
+        path = os.path.join(my_path, "../data/customers.csv")
 
         with open(path) as csvfile:
             reader = csv.DictReader(csvfile)
@@ -31,5 +31,5 @@ class Customer:
 
         
 
-# all_customers = Customer.objects()
-# print(all_customers)
+all_customers = Customer.objects()
+print(all_customers)

@@ -11,12 +11,18 @@ class Video_Inventory:
     # def __init__(self):
     #     pass
     
-    def __init__(self, **video):#,title,rating,copies_available
-        self.video = video
+    def __init__(self,**entries):#,title,rating,copies_available
         # print(len(self.video))
-        # self.title = title
-        # self.rating = rating
-        # self.copies_available = copies_available
+        self.entries = entries
+        # print(type(self.entries), len(self.entries))
+        if self.entries != {}:
+          for  in self.entries:
+            print(k)
+
+
+        # self.title = cls.entries
+        # self.rating = cls.entries
+        # self.copies_available = cls.entries
         
 
     # @classmethod
@@ -36,14 +42,14 @@ class Video_Inventory:
     def list_inventory(cls):
       with open(video_path, 'r') as video_file:
         inventory = csv.DictReader(video_file)
-        video_list = []
+        cls.video_list = []
 
-        for video in inventory:  
+        for entries in inventory:  
         #     print (f"\nTitle: {video['title']}\nRating: {video['rating']}\nCopies in Store: {video['copies_available']}"
 
-        # video_list.append(video)# list of dicts     
-        
-          entries = Video_Inventory(**entries)
+          cls.video_list.append(entries)# list of dicts     
+          entry = Video_Inventory(**entries)
+          # print(entries)
 
         # print(video)
         # return f"Title: {video_list[0]['title']}\nRating: {video_list[0]['id']}\nCopies in store: {video_list[0]['copies_available']}"
@@ -55,9 +61,11 @@ class Video_Inventory:
           # cls.video_list = Video_Inventory(f"ID: {video['id']}, {video['id']},{video['id']}")
           # print(cls.video_list)
 
-    def __str__(self):
-        for i in len(self.video):
-          return f"ID: {videos[i]['id']}\nTitle: {videos[i]['title']}\nRating: {videos[i]['id']}\nCopies in store: {videos[i]['copies_available']}"
+    # def __str__(self):
+        # print(self.entries)
+        # print(type(self.entries))
+        
+          # return f"ID: {self.entries[i]['id']}\nTitle: {self.entries[i]['title']}\nRating: {self.entries[i]['id']}\nCopies in store: {self.entries[i]['copies_available']}"
 
 
 
