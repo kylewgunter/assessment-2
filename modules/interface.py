@@ -7,6 +7,8 @@
 # 5. add a new customer adds customer to database and assigns an id number that isnt in database already
 # 6 exit
 
+
+
 from .video_inventory import Video_Inventory
 from .customer import Customer
 
@@ -22,13 +24,13 @@ class Interface:
             mode = input("\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. Exit\n\nSelect an option: ")
 
             if mode == '1':
-                view_inventory = Video_Inventory()
-                    
+                list_inventory = Video_Inventory()
+                return list_inventory
             elif mode == '2':
                view_rentals = Customer.objects()
 
             # elif mode == '3':
-            #    rent_video = rent()
+            # #    rent_video = rent()
 
             elif mode == '6':
                 print("\n--- Goodbye! ---")
