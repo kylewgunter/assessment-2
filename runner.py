@@ -1,5 +1,7 @@
 
 
 from modules.interface import Interface
-test = Interface().run()
-        
+
+test = Interface()
+
+test.run() # [list of module objects]
