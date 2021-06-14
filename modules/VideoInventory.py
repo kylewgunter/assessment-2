@@ -8,31 +8,36 @@ inventory_path = os.path.join(my_path, "../data/inventory.csv")
 # 
 
 class VideoInventory:
-  all_movies = []
   
   def __init__(self,id,title,rating,copies_available):
     self.id = id
     self.title = title
     self.rating = rating
     self.copies_available = copies_available
-    # self.user_posts = []
 
   @classmethod
   def get_inventory(cls):
-        with open(inventory_path, 'r') as movie_file:
-            inventory = csv.DictReader(movie_file)
-            movies_list = []
-        for movie in inventory:
-            movies_in_store = VideoInventory(movie['title'], movie['rating'], movie['copies_available'])
-            movies_list.append(movies_in_store)
-        return movies_list
+    with open(inventory_path, 'r', newline='') as video_file:
+      inventory = csv.DictReader(video_file)
+      video_inventory = []
+      for video in inventory:
+        videos_in_store = VideoInventory(video['id'], video['title'], video['rating'], video['copies_available'])
+        print(video_inventory)
+        video_inventory.append(videos_in_store)
+      return video_inventory
 
-  @classmethod
-  def get_all_posts(cls):
-    with open(path, 'r') as posts_file:
-      posts = csv.DictReader(posts_file)
-      posts_list = []
-      for post in posts:
-        new_post = Post(post['user_id'], post['title'], post['body'])
-        posts_list.append(new_post)
-      return posts_list
+  
+
+  # @classmethod
+  # def get_inventory(cls):
+  #   with open(inventory_path, 'r', newline='') as video_file:
+  #     inventory = csv.DictReader(video_file)
+  #     inventory_list = []
+  #     for video in inventory:
+  #       in_store = VideoInventory(video['id'], video['title'], video['rating'])
+  #       inventory_list.append(in_store)
+  #     return inventory_list
+
+  def __str__(self):
+    return f"ID: {self.id}\nTitle: {self.title}\nRating: {self.rating}\nCopies in Store: {self.copies_available}\n--------------------\n"
+

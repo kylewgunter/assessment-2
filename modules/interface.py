@@ -6,14 +6,17 @@
 # 4. return module increments value dict for match
 # 5. add a new customer adds customer to database and assigns an id number that isnt in database already
 # 6 exit -- done
-import re
+
 import os
 import csv
 my_path = os.path.abspath(os.path.dirname(__file__))
 inventory_path = os.path.join(my_path, "../data/inventory.csv")
+customer_path = os.path.join(my_path, "../data/customers.csv")
 
 
+from modules.customer import Customer
 from .VideoInventory import VideoInventory
+
 # from .customer import Customer
 
 # 1. view video inventory = list of current videos in store init video inventory module
@@ -21,62 +24,72 @@ from .VideoInventory import VideoInventory
 class Interface:    
     def __init__(self):
         pass
-        self.video_inventory = []
+        self.inventory = []
+        self.customers = []
 
     def run(self):
+        print("\n----- Welcome to Code Platoon Video! -----\n")
+        print("Please select one of the following options")
+        
         while True:
-            print("\n----- Welcome to Code Platoon Video! -----\n------------------------------------------\n")
-            print("Please select one of the following options")
-            mode = input("\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. Exit\n\nSelect an option: ")
+            mode = int(self.menu_options())
+            return_menu = ("What else would you like to do?")
+            
+            if mode == 0:
+                continue
 
-            if mode == '1':
-                print("\n")
-                inventory = Interface()
-                inventory.get_inventory()
-                # inventory = Video_Inventory()
-                # inventory.get_inventory_list()
-                # print('\n***test***')
-                # list_inventory = Video_Inventory()
-                # return list_inventory
-            # elif mode == '2':
-            #    view_rentals = Customer.objects()
+            if mode == 1:
+                self.store_inventory()
+                print(return_menu)
+                mode == 0
+
+            elif mode == 2:
+                self.get_customer_info()
+                print(return_menu)
+                mode == 0
 
             # elif mode == '3':
             # #    rent_video = rent()
-
-            elif mode == '6':
-                print("\n--- Goodbye! ---\n")
+            elif mode == 6:
+                print("\n--- Goodbye ---\n")
                 break
 
-    def view_inventory(self):
-        for video in self.video_inventory:
+    def menu_options(self):
+       mode = int(input("\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. Exit\n\nSelect an option: "))
+       return mode
+
+    def return_options(self):
+       mode = int(input("What else would you like to do?\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. to Exit application\nSelect an option: "))
+       return mode
+    
+    def store_inventory(self):
+        self.inventory = Interface.get_inventory()
+        inventory = self.inventory
+        for video in inventory:
             print(video)
-   
-    # creates a list of inventory objects
+
+    def get_customer_info(self):
+        self.customers = Interface.customer_info()
+        customer_data = self.customers
+        for customer in customer_data:
+            print(customer)
+
     @classmethod
     def get_inventory(cls):
-        with open(inventory_path, 'r', newline='') as movie_file:
-            inventory = csv.DictReader(movie_file)
-            video_list = []
-            for movie in inventory:
-                movies_in_store = VideoInventory(movie['id'], movie['title'], movie['rating'], movie['copies_available'])
-                video_list.append(movies_in_store)
-                print(f"ID: {movie['id']}\nTitle: {movie['title']}\nRating: {movie['rating']}\nCopies in store: {movie['copies_available']} ")
+        with open(inventory_path, 'r', newline='') as video_file:
+            inventory = csv.DictReader(video_file)
+            video_inventory = []
+            for video in inventory:
+                videos_in_store = VideoInventory(video['id'], video['title'], video['rating'], video['copies_available'])
+                video_inventory.append(videos_in_store)
+            return video_inventory
 
-
-
-
-
-# @classmethod
-#   def get_all_users_from_db(cls):
-#     with open(user_path, 'r') as users_file:
-#       users = csv.DictReader(users_file)
-#       users_list = []
-#       for user in users:
-#         if user['tier'] == 'p':
-#           premium_user = PremiumUser(user['name'], user['email_address'], user['driver_license'])
-#           users_list.append(premium_user)
-#         else:
-#           free_user = FreeUser(user['name'], user['email_address'], user['driver_license'])
-#           users_list.append(free_user)
-#       return users_list 
+    @classmethod
+    def customer_info(cls):
+        with open(customer_path, 'r', newline='') as customer_file:
+            customer_info = csv.DictReader(customer_file)
+            customer_data = []
+            for customer in customer_info:
+                info = Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals'])
+                customer_data.append(info)
+            return customer_data
