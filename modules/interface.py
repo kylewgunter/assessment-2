@@ -17,7 +17,6 @@ customer_path = os.path.join(my_path, "../data/customers.csv")
 from modules.customer import Customer
 from .VideoInventory import VideoInventory
 
-# from .customer import Customer
 
 # 1. view video inventory = list of current videos in store init video inventory module
 # Interface init creates a list of movies var that is empty.
@@ -48,8 +47,11 @@ class Interface:
                 print(return_menu)
                 mode == 0
 
-            # elif mode == '3':
-            # #    rent_video = rent()
+            elif mode == 3:
+                self.rent_video()
+                print(return_menu)
+                mode == 0
+            
             elif mode == 6:
                 print("\n--- Goodbye ---\n")
                 break
@@ -73,6 +75,33 @@ class Interface:
         customer_data = self.customers
         for customer in customer_data:
             print(customer)
+
+    def rent_video(self):
+        self.enter_id = input('Enter Customer Id: ')
+        # numbers = self.number_of_rentals()
+
+        # self.data_backup()
+
+    def number_of_rentals(self):
+        rental_count = 0
+        # check_rentals = Interface.get_customer_info()
+        with open(customer_path, 'r', newline='') as customer_file:
+            customer_info = csv.DictReader(customer_file)
+            rental_data = []
+            for row in customer_info:
+                print(row.current_video_rentals)
+                 
+
+            # rental_data = []
+            # count_rentals = self.customers
+            # for rentals in count_rentals:
+            #     rental_data.append(rentals)
+            
+        # for rentals in self.customers:
+        #     if rentals.id == self.customers.id:
+        #         num_posts += 1
+        #     return num_posts
+    
 
     @classmethod
     def get_inventory(cls):

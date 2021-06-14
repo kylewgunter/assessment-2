@@ -26,18 +26,6 @@ class VideoInventory:
         video_inventory.append(videos_in_store)
       return video_inventory
 
-  
-
-  # @classmethod
-  # def get_inventory(cls):
-  #   with open(inventory_path, 'r', newline='') as video_file:
-  #     inventory = csv.DictReader(video_file)
-  #     inventory_list = []
-  #     for video in inventory:
-  #       in_store = VideoInventory(video['id'], video['title'], video['rating'])
-  #       inventory_list.append(in_store)
-  #     return inventory_list
-
   def __str__(self):
     return f"ID: {self.id}\nTitle: {self.title}\nRating: {self.rating}\nCopies in Store: {self.copies_available}\n--------------------\n"
 
