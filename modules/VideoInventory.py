@@ -27,5 +27,5 @@ class VideoInventory:
       return video_inventory
 
   def __str__(self):
-    return f"ID: {self.id}\nTitle: {self.title}\nRating: {self.rating}\nCopies in Store: {self.copies_available}\n--------------------\n"
+    return f"ID: {self.id}\nTitle: {self.title}\nRating: {self.rating}\nCopies in Store: {self.copies_available}\n\n--------------------\n"
 

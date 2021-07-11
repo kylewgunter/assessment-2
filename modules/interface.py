@@ -1,30 +1,23 @@
-# Create interface with multiple options
-# 1. view video inventory = list of current videos in store init video inventory module
-# 2. view rentals initiate a list of current rentals per customer
-# 3. rent video module iterates over video list in store and decrements with a match of title and pops off list?
-# if title has 0, runner throws an exception 
-# 4. return module increments value dict for match
-# 5. add a new customer adds customer to database and assigns an id number that isnt in database already
-# 6 exit -- done
 
 import os
 import csv
 my_path = os.path.abspath(os.path.dirname(__file__))
 inventory_path = os.path.join(my_path, "../data/inventory.csv")
+inventory_backup_path = os.path.join(my_path, "../data/inventory_backup.csv")
 customer_path = os.path.join(my_path, "../data/customers.csv")
+customer_backup_path = os.path.join(my_path, "../data/customer_backup.csv")
 
 
 from modules.customer import Customer
 from .VideoInventory import VideoInventory
 
-
-# 1. view video inventory = list of current videos in store init video inventory module
-# Interface init creates a list of movies var that is empty.
 class Interface:    
     def __init__(self):
         pass
         self.inventory = []
         self.customers = []
+        self.inventory_backup()
+        self.customer_backup()
 
     def run(self):
         print("\n----- Welcome to Code Platoon Video! -----\n")
@@ -51,6 +44,17 @@ class Interface:
                 self.rent_video()
                 print(return_menu)
                 mode == 0
+
+            elif mode == 4:
+                self.return_video()
+                print(return_menu)
+                mode == 0
+            
+            elif mode == 5:
+                self.add_customer()
+                print(return_menu)
+                mode == 0
+
             
             elif mode == 6:
                 print("\n--- Goodbye ---\n")
@@ -72,37 +76,78 @@ class Interface:
 
     def get_customer_info(self):
         self.customers = Interface.customer_info()
-        customer_data = self.customers
-        for customer in customer_data:
-            print(customer)
+        customer_data = input("Enter customer ID: ")
+        rental_data = []
+        for customer in self.customers:
+            if customer.id == customer_data:
+                rental_data = customer.current_video_rentals.split('/')
+                rented = ", ".join(rental_data)
+                print(f"\n--------------------\n\nMember ID: {customer.id}\nCustomer: {customer.first_name} {customer.last_name}")
+                print(f"Active rentals: {rented}\n\n--------------------\n")
 
     def rent_video(self):
-        self.enter_id = input('Enter Customer Id: ')
-        # numbers = self.number_of_rentals()
+        self.rent = Interface.customer_info()
+        self.store_inventory()
+        rental_number = 0
+        rental_data = []
+        customer_data = input("Enter customer ID: ")
+        for customer in self.rent:
+            if customer.id == customer_data:
+                rental_data = customer.current_video_rentals.split('/')
+                rented = ", ".join(rental_data)
+                rental_number = len(rental_data)
+                rental_info = print(f"\nMember ID: {customer.id}\nCustomer: {customer.first_name} {customer.last_name}\nCurrent rentals: {rented}\nActive number of rentals: {rental_number}")
+                
+                if rental_number == 3:
+                    print(f"\n* Notify customer to return videos first \n\n--------------------\n")
 
-        # self.data_backup()
+                else:
+                    movie_id = (input("Enter movie by title: "))
+                    for index, movie in enumerate(self.inventory):
+                        if movie_id == index+1:
+                            if rental_data == ['']:
+                                rental_data.append(movie.title)
+                                customer.current_video_rentals = "".join
+                            else:
+                                rental_data.append(movie.title)
+                                customer.current_video_rentals = "/".join(rental_data)
+                                checkout = int(movie.copies_available) - 1
+                                movie.copies_available = checkout
+                    print(f"\n----- Please return in 3 days to avoid late fees -----\n")
+                    self.update_customers()
+                    # self.update_inventory()
+    
+    def update_customers(self):
+        with open(customer_path, 'w') as update_customers:
+            update = csv.writer(update_customers)
+            inventory = []
+            for customer in inventory:
+                customer_update = (Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals']))
+                inventory.append(customer_update)
+                return inventory
 
-    def number_of_rentals(self):
-        rental_count = 0
-        # check_rentals = Interface.get_customer_info()
+
+    # def update_inventory(self):
+        
+    
+    def inventory_backup(self):
+        with open(inventory_backup_path, 'r', newline='') as video_file:
+            inventory = csv.DictReader(video_file)
+            video_inventory = []
+            for video in inventory:
+                videos_in_store = VideoInventory(video['id'], video['title'], video['rating'], video['copies_available'])
+                video_inventory.append(videos_in_store)
+            return video_inventory
+    
+    def customer_backup(self):
         with open(customer_path, 'r', newline='') as customer_file:
             customer_info = csv.DictReader(customer_file)
-            rental_data = []
-            for row in customer_info:
-                print(row.current_video_rentals)
-                 
-
-            # rental_data = []
-            # count_rentals = self.customers
-            # for rentals in count_rentals:
-            #     rental_data.append(rentals)
-            
-        # for rentals in self.customers:
-        #     if rentals.id == self.customers.id:
-        #         num_posts += 1
-        #     return num_posts
-    
-
+            customer_data = []
+            for customer in customer_info:                
+                info = Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals'])
+                customer_data.append(info)
+            return customer_data
+                   
     @classmethod
     def get_inventory(cls):
         with open(inventory_path, 'r', newline='') as video_file:
@@ -118,7 +163,7 @@ class Interface:
         with open(customer_path, 'r', newline='') as customer_file:
             customer_info = csv.DictReader(customer_file)
             customer_data = []
-            for customer in customer_info:
+            for customer in customer_info:                
                 info = Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals'])
                 customer_data.append(info)
             return customer_data
