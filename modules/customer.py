@@ -12,14 +12,6 @@ class Customer:
         self.last_name = last_name
         self.current_video_rentals = current_video_rentals
     
-    def update_customers(self):
-        with open(customer_path, 'w') as update_customers:
-            update = csv.writer(update_customers)
-            inventory = []
-            for customer in inventory:
-                customer_update = (Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals']))
-                inventory.append(customer_update)
-                return inventory
 
     @classmethod
     def customer_info(cls):

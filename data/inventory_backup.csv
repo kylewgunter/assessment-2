@@ -1,11 +1,611 @@
 id,title,rating,copies_available
-1,Guardians of the Galaxy,PG-13,5
-2,Prometheus,R,2
-3,Split,PG-13,8
-4,Sing,PG,10
-5,La La Land,PG-13,0
-6,WALL-E,G,3
-7,The Prestige,PG-13,1
-8,The Dark Knight,PG-13,5
-9,Inception,PG-13,2
-10,Interstellar,PG-13,0
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"
+"ID: 1
+Title: Guardians of the Galaxy
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 2
+Title: Prometheus
+Rating: R
+Copies in Store: 2
+
+--------------------
+","ID: 3
+Title: Split
+Rating: PG-13
+Copies in Store: 8
+
+--------------------
+","ID: 4
+Title: Sing
+Rating: PG
+Copies in Store: 10
+
+--------------------
+","ID: 5
+Title: La La Land
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+","ID: 6
+Title: WALL-E
+Rating: G
+Copies in Store: 3
+
+--------------------
+","ID: 7
+Title: The Prestige
+Rating: PG-13
+Copies in Store: 1
+
+--------------------
+","ID: 8
+Title: The Dark Knight
+Rating: PG-13
+Copies in Store: 5
+
+--------------------
+","ID: 9
+Title: Inception
+Rating: PG-13
+Copies in Store: 2
+
+--------------------
+","ID: 10
+Title: Interstellar
+Rating: PG-13
+Copies in Store: 0
+
+--------------------
+"

@@ -54,14 +54,13 @@ class Interface:
                 self.add_customer()
                 print(return_menu)
                 mode == 0
-
-            
+     
             elif mode == 6:
                 print("\n--- Goodbye ---\n")
                 break
 
     def menu_options(self):
-       mode = int(input("\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. Exit\n\nSelect an option: "))
+       mode = input("\n1. View video inventory\n2. View customer's rented videos \n3. Rent video\n4. Return video\n5. Add new customer\n6. Exit\n\nSelect an option: ")
        return mode
 
     def return_options(self):
@@ -114,21 +113,72 @@ class Interface:
                                 checkout = int(movie.copies_available) - 1
                                 movie.copies_available = checkout
                     print(f"\n----- Please return in 3 days to avoid late fees -----\n")
-                    self.update_customers()
-                    # self.update_inventory()
-    
-    def update_customers(self):
-        with open(customer_path, 'w') as update_customers:
-            update = csv.writer(update_customers)
-            inventory = []
-            for customer in inventory:
-                customer_update = (Customer(customer['id'], customer['first_name'], customer['last_name'], customer['current_video_rentals']))
-                inventory.append(customer_update)
-                return inventory
+                    self.save_customers()
+                    self.update_inventory()
 
-
-    # def update_inventory(self):
+    def return_video(self):
+        self.returns = Interface.customer_info()
+        rental_data = []
+        rental_number = 0
+        customer_data = input("Enter customer ID: ")
         
+        for customer in self.returns:
+            if customer.id == customer_data:
+                rental_data = customer.current_video_rentals.split('/')
+                rental_number = len(rental_data)
+                if rental_data == 0:
+                    print(f"No active rentals")
+                else:
+                    rental_data = customer.current_video_rentals.split('/')
+                    self.customers = customer.current_video_rentals.split('/')
+                    for index, movie in enumerate(rental_data):
+                        rental_info = print(f"\nMember ID: {customer.id}\nCurrent rentals: {movie}\n")
+
+                    selection = input("Which video do you want to return: ")
+                    if selection == None:
+                        break
+                    else: 
+                        return_movie = slice(rental_data[index])
+                        rental_data.pop(index)
+                        customer.current_video_rentals = "/".join(rental_data)
+                        for inventory in self.inventory:
+                            if return_movie == inventory.title:
+                                returned_to_store = int(inventory.copies_available) + 1
+                                inventory.copies_available = returned_to_store
+                        print(f"\n----- Video returned -----\n")
+                    self.save_customers()
+                    self.update_inventory()
+
+    def add_customer(self):
+        print(f"\n---- Enter Customer information ----\n")
+        id = len(self.customers) + 1
+        first_name = input("First name: ")
+        last_name = input("Last name: ")
+        current_video_rentals = ""
+        customer_map = (id,first_name,last_name,current_video_rentals)
+        self.customers.append(Customer(*customer_map))
+        print(f"\n----- New Customer saved -----\n")
+        self.save_customers()
+    
+    def save_customers(self):
+        with open(customer_backup_path, 'w') as update_customers:
+            header = ["id","first_name","last_name","current_video_rentals"]
+            update = csv.writer(update_customers, delimiter=',')
+            update.writerow([field for field in header])
+            for customer in self.customers:
+                update.writerow(self.customers)
+            return customer
+
+    def update_inventory(self):
+        with open(inventory_backup_path, 'w') as update_inventory:
+            header = ["id","title","rating","copies_available"]
+            update = csv.writer(update_inventory, delimiter=',')
+            update.writerow([field for field in header])
+            
+            for inventory in self.inventory:
+                update.writerow(self.inventory)
+            
+            return None
     
     def inventory_backup(self):
         with open(inventory_backup_path, 'r', newline='') as video_file:

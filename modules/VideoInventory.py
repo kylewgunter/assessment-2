@@ -4,9 +4,6 @@ import os
 my_path = os.path.abspath(os.path.dirname(__file__))
 inventory_path = os.path.join(my_path, "../data/inventory.csv")
 
-# class method calls itself outputs a list inventory of objects with key/values of the inventory
-# 
-
 class VideoInventory:
   
   def __init__(self,id,title,rating,copies_available):
